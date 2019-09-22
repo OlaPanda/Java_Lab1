@@ -1,7 +1,10 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Main {
 
@@ -86,13 +89,16 @@ public class Main {
             if(square.length1()==square.length2()&&(square.length1()==square.length3())&&(square.length1()==square.length4())&&(square.length2()==square.length3())&&(square.length2()==square.length4())&&(square.length3()==square.length4()))
             System.out.println(square.toString());
         }
-        ArrayList<Integer> index = new ArrayList<>();
         System.out.println(arrayList);
         for (int k = 0; k < arrayList.size(); k++){
             for (int p = k+1; p < arrayList.size(); p++){
                 if(arrayList.get(k) == arrayList.get(p)){
-                        index.add(arrayList.indexOf(arrayList.get(k)));
-                        System.out.println(index);
+                    int boom = arrayList.get(k);
+                    List<Integer> indices = IntStream.range(0, arrayList.size())
+                            .filter(idx -> arrayList.get(idx).equals(boom))
+                            .boxed()
+                            .collect(Collectors.toList());
+                    System.out.println("Индексы одинаковых квадратов: " + indices);
                 }
             }
         }
