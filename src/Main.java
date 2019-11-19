@@ -15,8 +15,13 @@ public class Main {    public static Universiteis universiteis;
         universiteis.add(new University("Физкультура","001122","ИИМ","СФ-181",67,34,56), 8);
         universiteis.add(new University("Компьютерные технологии в автоматизации та управлении", "009877", "ИКС","АТ-172","Морозова А.А.","Кисель А.Г.", 23,46,88), 9);
         universiteis.add(new University("Теория систем та системний анализ","011987","ИКС","АМ-166",91,92,93), 10);
-
+        ClassExecutingTask executingTask = new ClassExecutingTask();
+        executingTask.start();
         Menu();
+    }
+    public static void Backup(){
+        Backup backup = new Backup("University.bcp", universiteis);
+        backup.start();
     }
     /**
      * Создания меню
@@ -35,7 +40,7 @@ public class Main {    public static Universiteis universiteis;
                     "\n5) Список всех курсов" +
                     "\n6) Записать данные в файл" +
                     "\n7) Считать данные из файла" +
-                    "\n8) Очистка спика" +
+                    "\n8) Очистка спиcка" +
                     "\n9) Выход" +
                     "\nВведите цифру нужного пункта и нажмите Enter: ");
             boolean isCorrectly = false;

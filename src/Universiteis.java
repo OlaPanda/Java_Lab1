@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Universiteis {Scanner scanner = new Scanner(System.in);
 
     public ArrayList<University> list;
-
+    boolean isCorrectly = false;
     public Universiteis(){
         this.list = new ArrayList<>();
     }
